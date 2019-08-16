@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="info">
+
+    <!--日志级别以及优先级排序: OFF > FATAL > ERROR > WARN > INFO > DEBUG > TRACE > ALL -->
+    <!--Configuration后面的status，这个用于设置log4j2自身内部的信息输出，可以不设置，当设置成trace时，你会看到log4j2内部各种详细输出-->
+    <properties>
+        <property name="logCharset">UTF-8</property>
+        <property name="logBaseFolder">${sys:catalina.home}/logs/ssm-frame/</property>
+        <property name="patternLayout">%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %class{36} %L %M ->%msg%xEx%n</property>
+    </properties>
+
+    <appenders>
+        <!-- 这个输出控制台的配置 -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <!--  过滤器ThresholdFilter,将打印某级别以上的日志 onMatch="ACCEPT" onMismatch="DENY"意思是匹配就打印,否则不打印 -->
+            <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
+            <!-- 表达式PatternLayout确定输出日志的格式 -->
+            <PatternLayout pattern="${patternLayout}" charset="GBK"/>
+        </Console>
+
+        <!-- 会打印出所有的日志，当日志文件大小超过某个size时，这size大小的日志会自动存入按年份-月份建立的文件夹下面压缩保存 -->
+        <RollingFile name="RollingInfo" fileName="${logBaseFolder}/info.log"
+                     filePattern="${logBaseFolder}/$${date:yyyy-MM}/web-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout pattern="${patternLayout}" charset="${logCharset}"/>
+            <SizeBasedTriggeringPolicy size="2MB"/>
+        </RollingFile>
+
+        <!-- 加多个error级别的过滤器，使error以上级别的日志可以同时打印在另外一个文件中  -->
+        <File name="RollingError" fileName="${logBaseFolder}/error.log">
+            <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="${patternLayout}" charset="${logCharset}"/>
+        </File>
+
+
+        <!-- append为true表示打印在日志后，false表示消息覆盖日志重新开始，默认值是true
+        <File name="Test" fileName="${logBaseFolder}/test.log" append="false">
+            <PatternLayout pattern="${patternLayout}" charset="${logCharset}"/>
+        </File> -->
+    </appenders>
+
+    <!-- 定义logger并引入的appender -->
+    <loggers>
+        <root level="trace">
+            <appender-ref ref="Console"/>
+            <appender-ref ref="RollingInfo"/>
+            <appender-ref ref="RollingError"/>
+            <!--            <appender-ref ref="Test"/>-->
+        </root>
+    </loggers>
+</configuration>
