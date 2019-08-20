@@ -50,8 +50,9 @@
     <!-- 上传文件所需配置MultipartResolver处理器 -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="defaultEncoding" value="UTF-8" />
-        <!-- 指定上传文件的总大小maxUploadSize属性的限制不是针对单个文件，而是所有文件的容量之和 -->
-        <property name="maxUploadSize" value="-1" />
+        <!-- 指定所上传文件的总大小：最大值5MB，5*1024*1024
+             注意：maxUploadSize属性的限制不是针对单个文件，而是所有文件的容量之和-->
+        <property name="maxUploadSize" value="5242880" />
     </bean>
 
 
