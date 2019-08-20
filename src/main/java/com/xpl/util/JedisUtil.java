@@ -298,7 +298,7 @@ public class JedisUtil {
      * 移除Map缓存中的值
      *
      * @param key   键
-     * @param value 值
+     * @param mapKey 值
      * @return
      */
     public static long mapRemove(String key, String mapKey) {
@@ -320,7 +320,7 @@ public class JedisUtil {
      * 判断Map缓存中的Key是否存在
      *
      * @param key   键
-     * @param value 值
+     * @param mapKey 值
      * @return
      */
     public static boolean mapExists(String key, String mapKey) {
@@ -421,7 +421,7 @@ public class JedisUtil {
      */
     public static void returnResource(Jedis jedis) {
         if (jedis != null) {
-            jedisPool.returnResource(jedis);
+            jedis.close();
         }
     }
 

@@ -5,6 +5,7 @@ import com.xpl.framework.BaseController;
 import com.xpl.framework.ErrorCodeConstant;
 import com.xpl.framework.ResultView;
 import com.xpl.service.UserInfoService;
+import com.xpl.util.JedisUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,16 @@ public class UserInfoController extends BaseController {
 
         result.setCode(ErrorCodeConstant.CODE_SUCCESS);
         result.setData(userInfoPO);
+        return result;
+    }
+
+    @RequestMapping(value = "redisSet", method = RequestMethod.GET)
+    public ResultView<?> redisSet(String key, String value){
+        ResultView<?> result = new ResultView<>();
+
+        JedisUtil.set(key, value, 0);
+
+        result.setCode(ErrorCodeConstant.CODE_SUCCESS);
         return result;
     }
 }
