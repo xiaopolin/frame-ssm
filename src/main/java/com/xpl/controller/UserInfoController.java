@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RestController
 @RequestMapping("manage")
 public class UserInfoController extends BaseController {
@@ -42,6 +44,30 @@ public class UserInfoController extends BaseController {
         ResultView<?> result = new ResultView<>();
 
         JedisUtil.set(key, value, 0);
+
+        result.setCode(ErrorCodeConstant.CODE_SUCCESS);
+        return result;
+    }
+
+    @RequestMapping(value = "testGet", method = RequestMethod.GET)
+    public ResultView<?> testGet(UserInfoPO userInfoPO){
+        ResultView<?> result = new ResultView<>();
+
+        System.out.println(userInfoPO);
+
+        result.setCode(ErrorCodeConstant.CODE_SUCCESS);
+        return result;
+    }
+
+    @RequestMapping(value = "testPost", method = RequestMethod.POST)
+    public ResultView<?> testPost(HttpServletRequest request, UserInfoPO userInfoPO){
+        ResultView<?> result = new ResultView<>();
+
+        String id = request.getParameter("id");
+
+        System.out.println("id为：" + id);
+
+        System.out.println("对象为：" + userInfoPO);
 
         result.setCode(ErrorCodeConstant.CODE_SUCCESS);
         return result;

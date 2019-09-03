@@ -1,4 +1,4 @@
-package com.xpl.util.RabbitMQ;
+package com.xpl.util.rabbitMQ;
 
 import com.rabbitmq.client.Consumer;
 import com.rabbitmq.client.Envelope;

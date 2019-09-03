@@ -1,4 +1,4 @@
-package com.xpl.util.RabbitMQ;
+package com.xpl.util.rabbitMQ;
 
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
@@ -13,6 +13,14 @@ import java.util.logging.Logger;
 public class RabbitMQParent {
 
     private static Properties properties = null;
+
+    protected boolean durable = false;
+    public boolean isDurable() {
+        return durable;
+    }
+    public void setDurable(boolean durable) {
+        this.durable = durable;
+    }
 
     static {
         Logger.getLogger("rabbitmq.clients.rabbitmq").setLevel(Level.WARNING);

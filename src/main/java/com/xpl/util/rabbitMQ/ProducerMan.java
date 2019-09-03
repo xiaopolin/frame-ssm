@@ -1,4 +1,4 @@
-package com.xpl.util.RabbitMQ;
+package com.xpl.util.rabbitMQ;
 
 import com.alibaba.fastjson.JSON;
 
@@ -9,12 +9,12 @@ public class ProducerMan extends RabbitMQParent {
             /*
              * 声明（创建）队列
              * 参数1：队列名称
-             * 参数2：为true时server重启队列不会消失
+             * 参数2：为true时server重启后队列不会消失，若前端想连接则必须设置为true
              * 参数3：队列是否是独占的，如果为true只能被一个connection使用，其他连接建立时会抛出异常
              * 参数4：队列不再使用时是否自动删除（没有连接，并且没有未处理的消息)
              * 参数5：建立队列时的其他参数
              */
-            getChannel().queueDeclare(queueName, false, false, false, null);
+            getChannel().queueDeclare(queueName, durable, false, false, null);
 
             //发送数据至queue
             getChannel().basicPublish("", queueName, null, objectToString(message).getBytes());
