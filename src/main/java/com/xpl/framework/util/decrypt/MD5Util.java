@@ -1,4 +1,4 @@
-package com.xpl.util.decrypt;
+package com.xpl.framework.util.decrypt;
 
 import java.io.*;
 import java.security.MessageDigest;

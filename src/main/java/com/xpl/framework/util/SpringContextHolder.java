@@ -1,7 +1,7 @@
 /**
  * Copyright &copy; ttf All rights reserved.
  */
-package com.xpl.util;
+package com.xpl.framework.util;
 
 import org.apache.commons.lang3.Validate;
 import org.slf4j.Logger;

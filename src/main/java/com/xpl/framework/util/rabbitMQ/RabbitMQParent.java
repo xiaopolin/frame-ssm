@@ -1,4 +1,4 @@
-package com.xpl.util.rabbitMQ;
+package com.xpl.framework.util.rabbitMQ;
 
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;

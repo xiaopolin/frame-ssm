@@ -1,4 +1,4 @@
-package com.xpl.util.decrypt;
+package com.xpl.framework.util.decrypt;
 
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;

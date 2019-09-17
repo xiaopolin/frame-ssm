@@ -1,4 +1,4 @@
-package com.xpl.util.decrypt;
+package com.xpl.framework.util.decrypt;
 
 import javax.crypto.*;
 import javax.crypto.spec.IvParameterSpec;

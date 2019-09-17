@@ -67,10 +67,20 @@
         <url-pattern>/*</url-pattern>
     </servlet-mapping>
 
+    <!-- druid控制台 -->
+    <servlet>
+        <servlet-name>DruidStatView</servlet-name>
+        <servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DruidStatView</servlet-name>
+        <url-pattern>/druid/*</url-pattern>
+    </servlet-mapping>
+
     <!-- 过滤器 -->
     <filter>
         <filter-name>simpleFilter</filter-name>
-        <filter-class>com.xpl.security.filter.SimpleFilter</filter-class>
+        <filter-class>com.xpl.framework.security.filter.SimpleFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>simpleFilter</filter-name>

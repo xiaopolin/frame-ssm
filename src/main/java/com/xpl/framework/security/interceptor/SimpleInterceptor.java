@@ -1,4 +1,4 @@
-package com.xpl.security.interceptor;
+package com.xpl.framework.security.interceptor;
 
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;

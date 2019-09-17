@@ -1,4 +1,4 @@
-package com.xpl.util;
+package com.xpl.framework.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

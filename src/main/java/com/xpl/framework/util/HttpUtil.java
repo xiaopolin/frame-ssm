@@ -1,4 +1,4 @@
-package com.xpl.util;
+package com.xpl.framework.util;
 
 import com.alibaba.fastjson.JSONObject;
 

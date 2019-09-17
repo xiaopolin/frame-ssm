@@ -4,8 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
-    <!-- 打印sql执行日志 -->
     <settings>
+        <!-- 打印sql执行日志 -->
         <setting name="logImpl" value="STDOUT_LOGGING"/>
     </settings>
 

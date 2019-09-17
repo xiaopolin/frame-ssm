@@ -15,7 +15,6 @@
 
     <mvc:annotation-driven>
         <mvc:message-converters register-defaults="true">
-
             <!-- 返回中文时不乱码 -->
             <bean class="org.springframework.http.converter.StringHttpMessageConverter">
                 <property name="supportedMediaTypes">
@@ -26,7 +25,6 @@
                     </list>
                 </property>
             </bean>
-
             <bean id="mappingJacksonHttpMessageConverter"
                   class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
                 <property name="supportedMediaTypes">
@@ -35,11 +33,11 @@
                     </list>
                 </property>
             </bean>
-
         </mvc:message-converters>
     </mvc:annotation-driven>
 
-    <bean id="simpleInterceptor" class="com.xpl.security.interceptor.SimpleInterceptor" />
+    <!-- 拦截器注入 -->
+    <bean id="simpleInterceptor" class="com.xpl.framework.security.interceptor.SimpleInterceptor" />
     <mvc:interceptors>
         <mvc:interceptor>
         <mvc:mapping path="/**"/>

@@ -1,11 +1,11 @@
-package com.xpl.controller;
+package com.xpl.web.controller;
 
 import com.xpl.api.po.UserInfoPO;
 import com.xpl.framework.BaseController;
 import com.xpl.framework.ErrorCodeConstant;
 import com.xpl.framework.ResultView;
 import com.xpl.service.UserInfoService;
-import com.xpl.util.JedisUtil;
+import com.xpl.framework.util.JedisUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
