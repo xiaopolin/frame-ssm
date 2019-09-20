@@ -1,4 +1,4 @@
-package com.xpl.framework;
+package com.xpl.api.vo;
 
 public class ResultView<T> {
 

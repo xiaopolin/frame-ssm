@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.List;
 
 public class ExcelUtil {
@@ -75,21 +77,25 @@ public class ExcelUtil {
             return;
         }
 
-
         ExcelWriter excelWriter = new ExcelWriter(sos, ExcelTypeEnum.XLSX);
 
         if (null == excelParams){
             return;
         }
-
         for (ExcelParam excelParam : excelParams){
             excelWriter.write(excelParam.getData(), excelParam.getSheet());
         }
-        response.setHeader("Content-disposition", "attachment;filename=活动记录.xlsx");
-        response.setContentType("multipart/form-data");
-        response.setCharacterEncoding("utf-8");
+
+        try {
+            response.setHeader("Content-disposition", "attachment;filename="+ URLEncoder.encode("活动记录", "UTF-8")+".xlsx");
+            response.setContentType("multipart/form-data");
+            response.setCharacterEncoding("utf-8");
+        }catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
 
         excelWriter.finish();
+
         try {
             sos.flush();
             sos.close();

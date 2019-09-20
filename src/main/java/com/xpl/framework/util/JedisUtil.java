@@ -410,7 +410,7 @@ public class JedisUtil {
      */
     public static void returnBrokenResource(Jedis jedis) {
         if (jedis != null) {
-            jedisPool.returnBrokenResource(jedis);
+            jedis.close();
         }
     }
 
