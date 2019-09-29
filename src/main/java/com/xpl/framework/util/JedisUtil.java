@@ -22,6 +22,9 @@ public class JedisUtil {
 
     private static JedisPool jedisPool = SpringContextHolder.getBean("jedisPool");
 
+    private static final int TRUE = 0;
+    private static final int FALSE = -10;
+
     /**
      * 获取缓存
      *
@@ -423,6 +426,23 @@ public class JedisUtil {
         if (jedis != null) {
             jedis.close();
         }
+    }
+
+    /**
+    * 获取分布式锁
+    */
+    public static int getLock(String key, String value, long time){
+        int result = FALSE;
+        Jedis jedis = null;
+        try {
+            jedis = getResource();
+            result = "OK" == jedis.set(key, value, "NX", "EX", time) ? TRUE : FALSE;
+        } catch (Exception e) {
+            logger.error("redis-getLock-error:" + e.getMessage());
+        } finally {
+            returnResource(jedis);
+        }
+        return result;
     }
 
 
