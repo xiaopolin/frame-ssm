@@ -26,13 +26,13 @@
         <property name="minEvictableIdleTimeMillis" value="300000"/>
     </bean>
 
-    <!-- mybaties扫描的dao接口 -->
+    <!-- mybatis扫描的dao接口 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.xpl.dao"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
 
-    <!-- mybaties扫描的xml映射 -->
+    <!-- mybatis扫描的xml映射 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="configLocation" value="classpath:spring/spring-mybatis.xml"/>
