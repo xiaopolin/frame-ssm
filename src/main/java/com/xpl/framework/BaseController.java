@@ -1,7 +1,6 @@
 package com.xpl.framework;
 
 import com.xpl.api.constant.ErrorCodeConstant;
-import com.xpl.api.vo.ResultView;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.web.bind.annotation.ExceptionHandler;

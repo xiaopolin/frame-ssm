@@ -11,7 +11,7 @@ import com.xpl.api.constant.CosConstant;
 import com.xpl.api.po.UserInfoPO;
 import com.xpl.framework.BaseController;
 import com.xpl.api.constant.ErrorCodeConstant;
-import com.xpl.api.vo.ResultView;
+import com.xpl.framework.ResultView;
 import com.xpl.service.UserInfoService;
 import com.xpl.framework.util.JedisUtil;
 import org.apache.logging.log4j.LogManager;
