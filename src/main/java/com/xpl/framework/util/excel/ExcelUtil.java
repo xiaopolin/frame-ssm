@@ -1,16 +1,15 @@
-package com.xpl.framework.util;
+package com.xpl.framework.util.excel;
 
+import com.alibaba.excel.ExcelReader;
 import com.alibaba.excel.ExcelWriter;
 import com.alibaba.excel.metadata.BaseRowModel;
 import com.alibaba.excel.metadata.Sheet;
 import com.alibaba.excel.support.ExcelTypeEnum;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.net.URLEncoder;
 import java.util.List;
 
@@ -102,6 +101,23 @@ public class ExcelUtil {
         }catch (IOException e){
             e.printStackTrace();
         }
+    }
+
+    /***
+     * Excel导入单sheet解析
+     * */
+    public static <T extends BaseRowModel> List analyzeExcel(MultipartFile file, Class<T> clazz){
+        InputStream inputStream;
+        try {
+            inputStream = file.getInputStream();
+        }catch (IOException e){
+            return null;
+        }
+        ExcelListener<T> listener =new ExcelListener<>();
+        ExcelReader excelReader = new ExcelReader(inputStream, null, listener, false);
+        excelReader.read(new Sheet(0, 1, clazz));
+
+        return listener.getData();
     }
 
 
