@@ -268,7 +268,7 @@
         <dependency>
             <groupId>com.rabbitmq</groupId>
             <artifactId>amqp-client</artifactId>
-            <version>4.0.3</version>
+            <version>4.8.0</version>
         </dependency>
 
         <!-- 腾讯云COS存储包，保留的原因是可以展示jar包冲突的解决方法 -->
