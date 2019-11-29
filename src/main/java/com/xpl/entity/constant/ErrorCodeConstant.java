@@ -1,4 +1,4 @@
-package com.xpl.api.constant;
+package com.xpl.entity.constant;
 
 public class ErrorCodeConstant {
 

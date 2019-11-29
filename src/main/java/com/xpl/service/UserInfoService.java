@@ -1,6 +1,6 @@
 package com.xpl.service;
 
-import com.xpl.api.po.UserInfoPO;
+import com.xpl.entity.po.UserInfoPO;
 
 public interface UserInfoService {
 

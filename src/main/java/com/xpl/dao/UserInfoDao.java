@@ -1,6 +1,6 @@
 package com.xpl.dao;
 
-import com.xpl.api.po.UserInfoPO;
+import com.xpl.entity.po.UserInfoPO;
 import org.apache.ibatis.annotations.Param;
 
 public interface UserInfoDao {

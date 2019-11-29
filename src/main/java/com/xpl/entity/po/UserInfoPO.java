@@ -1,4 +1,4 @@
-package com.xpl.api.po;
+package com.xpl.entity.po;
 
 import com.xpl.framework.BaseEntity;
 

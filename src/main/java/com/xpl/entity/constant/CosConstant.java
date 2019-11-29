@@ -1,4 +1,4 @@
-package com.xpl.api.constant;
+package com.xpl.entity.constant;
 
 
 import com.xpl.framework.BaseEntity;
