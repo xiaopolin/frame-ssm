@@ -305,6 +305,14 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+            <!-- 打包时跳过Junit -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
         </plugins>
         <!-- 扫描文件位置，将其添加至项目 -->
         <resources>
