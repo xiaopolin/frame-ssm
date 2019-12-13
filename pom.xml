@@ -243,20 +243,6 @@
             <version>1.2.60</version>
         </dependency>
 
-        <!-- okhttp发出http请求 -->
-        <dependency>
-            <groupId>com.squareup.okhttp3</groupId>
-            <artifactId>logging-interceptor</artifactId>
-            <version>3.9.1</version>
-        </dependency>
-
-        <!-- 邮件 -->
-        <dependency>
-            <groupId>com.sun.mail</groupId>
-            <artifactId>javax.mail</artifactId>
-            <version>1.5.0</version>
-        </dependency>
-
         <!-- Collections.sort排序list -->
         <dependency>
             <groupId>com.google.collections</groupId>
