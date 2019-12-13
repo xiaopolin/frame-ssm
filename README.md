@@ -17,7 +17,7 @@
   Controller父类，Entity父类
   ResultView: 项目默认返回实体类
   
-  aop:切面
+  aop:切面配置类
   security:拦截器，过滤器
   util:工具类
   ~~~
@@ -69,6 +69,10 @@
 
 log4j2
 
+~~~properties
+更能最强大同时效率也最好的记录日志的工具
+~~~
+
 ### 数据库连接池
 
 druid
@@ -77,13 +81,26 @@ druid
 
 redis
 
+~~~properties
+getLock()方法可以使用redis分布式锁
+~~~
+
 ### 消息队列
 
 rabbitMQ
 
+~~~properties
+工具类自己封装的
+~~~
+
 ### JSON
 
 fastjson
+
+~~~properties
+阿里出品的效率较好的JSON工具
+缺点是使用fastjson将实体类转换为JSON时，value为null的数据直接就不要了
+~~~
 
 ### 邮件
 
