@@ -106,7 +106,7 @@
             <version>${spring.version}</version>
         </dependency>
 
-        <!-- Mybaties -->
+        <!-- Mybatis -->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
